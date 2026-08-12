@@ -1,1 +1,28 @@
-{"rewrites": [{"source": "/((?!images|assets|favicon).*)", "destination": "/index.html"}]}
+{
+  "redirects": [
+    { "source": "/homepage", "destination": "/", "permanent": true },
+    { "source": "/moving", "destination": "/", "permanent": true },
+    { "source": "/reviews", "destination": "/", "permanent": true },
+    { "source": "/catering-menu", "destination": "/menu", "permanent": true },
+    { "source": "/order-now", "destination": "/order-catering", "permanent": true },
+    { "source": "/contact-us", "destination": "/order-catering", "permanent": true },
+    { "source": "/corporate-catering", "destination": "/services/corporate", "permanent": true },
+    { "source": "/offices", "destination": "/services/corporate", "permanent": true },
+    { "source": "/lunch-catering", "destination": "/services/corporate", "permanent": true },
+    { "source": "/wedding-catering", "destination": "/services/weddings", "permanent": true },
+    { "source": "/bbq-catering", "destination": "/services/bbq", "permanent": true },
+    { "source": "/graduation-catering", "destination": "/services/graduation", "permanent": true },
+    { "source": "/holiday-catering", "destination": "/services/holiday", "permanent": true },
+    { "source": "/sympathy-catering", "destination": "/services/sympathy", "permanent": true },
+    { "source": "/parties", "destination": "/services/parties", "permanent": true },
+    { "source": "/events", "destination": "/services/parties", "permanent": true },
+    { "source": "/big-game", "destination": "/services/parties", "permanent": true },
+    { "source": "/car-wash-fundraiser", "destination": "/services/parties", "permanent": true },
+    { "source": "/website-accessibility-policy", "destination": "/accessibility", "permanent": true },
+    { "source": "/inquiry", "destination": "/order-catering", "permanent": true },
+    { "source": "/services/graduation-holiday", "destination": "/services/graduation", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/((?!images|assets|favicon).*)", "destination": "/index.html" }
+  ]
+}

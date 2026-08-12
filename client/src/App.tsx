@@ -14,8 +14,11 @@ import Weddings from "./pages/services/Weddings";
 import BBQ from "./pages/services/BBQ";
 import Graduation from "./pages/services/Graduation";
 import Holiday from "./pages/services/Holiday";
+import Sympathy from "./pages/services/Sympathy";
 import ThursdayTrayDay from "./pages/ThursdayTrayDay";
 import About from "./pages/About";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Accessibility from "./pages/Accessibility";
 
 function Router() {
   return (
@@ -29,8 +32,11 @@ function Router() {
       <Route path="/services/bbq" component={BBQ} />
       <Route path="/services/graduation" component={Graduation} />
       <Route path="/services/holiday" component={Holiday} />
+      <Route path="/services/sympathy" component={Sympathy} />
       <Route path="/thursday-tray-day" component={ThursdayTrayDay} />
       <Route path="/about" component={About} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/accessibility" component={Accessibility} />
       {/* Redirect old combined route */}
       <Route path="/services/graduation-holiday">
         <Redirect to="/services/graduation" />

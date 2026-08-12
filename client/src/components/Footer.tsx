@@ -18,6 +18,12 @@ const SERVICE_LINKS = [
   { href: "/services/bbq", label: "BBQ Catering" },
   { href: "/services/graduation", label: "Graduation Catering" },
   { href: "/services/holiday", label: "Holiday Catering" },
+  { href: "/services/sympathy", label: "Sympathy Catering" },
+];
+
+const POLICY_LINKS = [
+  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/accessibility", label: "Website Accessibility Policy" },
 ];
 
 export default function Footer() {
@@ -117,8 +123,17 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-white/10 text-center">
-          <p className="text-white/60 text-sm">
+        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col items-center gap-3">
+          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+            {POLICY_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="text-white/60 hover:text-white transition-colors text-sm">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="text-white/60 text-sm text-center">
             &copy; {new Date().getFullYear()} Battatini's Family Style Catering. All rights reserved.
           </p>
         </div>
