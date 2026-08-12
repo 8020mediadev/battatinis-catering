@@ -1,4 +1,5 @@
 {
+  "trailingSlash": false,
   "redirects": [
     { "source": "/homepage", "destination": "/", "permanent": true },
     { "source": "/moving", "destination": "/", "permanent": true },
@@ -6,6 +7,7 @@
     { "source": "/catering-menu", "destination": "/menu", "permanent": true },
     { "source": "/order-now", "destination": "/order-catering", "permanent": true },
     { "source": "/contact-us", "destination": "/order-catering", "permanent": true },
+    { "source": "/inquiry", "destination": "/order-catering", "permanent": true },
     { "source": "/corporate-catering", "destination": "/services/corporate", "permanent": true },
     { "source": "/offices", "destination": "/services/corporate", "permanent": true },
     { "source": "/lunch-catering", "destination": "/services/corporate", "permanent": true },
@@ -19,7 +21,7 @@
     { "source": "/big-game", "destination": "/services/parties", "permanent": true },
     { "source": "/car-wash-fundraiser", "destination": "/services/parties", "permanent": true },
     { "source": "/website-accessibility-policy", "destination": "/accessibility", "permanent": true },
-    { "source": "/inquiry", "destination": "/order-catering", "permanent": true },
+    { "source": "/privacy-policy/", "destination": "/privacy-policy", "permanent": true },
     { "source": "/services/graduation-holiday", "destination": "/services/graduation", "permanent": true }
   ],
   "rewrites": [
