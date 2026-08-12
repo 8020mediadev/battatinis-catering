@@ -21,10 +21,23 @@
     { "source": "/big-game", "destination": "/services/parties", "permanent": true },
     { "source": "/car-wash-fundraiser", "destination": "/services/parties", "permanent": true },
     { "source": "/website-accessibility-policy", "destination": "/accessibility", "permanent": true },
-    { "source": "/privacy-policy/", "destination": "/privacy-policy", "permanent": true },
     { "source": "/services/graduation-holiday", "destination": "/services/graduation", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/((?!images|assets|favicon).*)", "destination": "/index.html" }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/menu", "destination": "/index.html" },
+    { "source": "/about", "destination": "/index.html" },
+    { "source": "/order-catering", "destination": "/index.html" },
+    { "source": "/thursday-tray-day", "destination": "/index.html" },
+    { "source": "/privacy-policy", "destination": "/index.html" },
+    { "source": "/accessibility", "destination": "/index.html" },
+    { "source": "/services/corporate", "destination": "/index.html" },
+    { "source": "/services/parties", "destination": "/index.html" },
+    { "source": "/services/weddings", "destination": "/index.html" },
+    { "source": "/services/bbq", "destination": "/index.html" },
+    { "source": "/services/graduation", "destination": "/index.html" },
+    { "source": "/services/holiday", "destination": "/index.html" },
+    { "source": "/services/sympathy", "destination": "/index.html" },
+    { "source": "/(.*)", "destination": "/api/not-found" }
   ]
 }

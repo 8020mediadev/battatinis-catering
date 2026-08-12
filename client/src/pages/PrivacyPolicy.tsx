@@ -1,6 +1,6 @@
 import LegalPage from "@/components/LegalPage";
 
-const CONTACT_EMAIL = "battatiniscatering@gmail.com";
+const CONTACT_EMAIL = "battatiniscatering@yahoo.com";
 
 function H2({ children }: { children: React.ReactNode }) {
   return (

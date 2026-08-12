@@ -1,6 +1,6 @@
 import LegalPage from "@/components/LegalPage";
 
-const CONTACT_EMAIL = "battatiniscatering@gmail.com";
+const CONTACT_EMAIL = "battatiniscatering@yahoo.com";
 
 function H2({ children }: { children: React.ReactNode }) {
   return (
@@ -73,6 +73,7 @@ export default function Accessibility() {
           "Phone: 585-544-FOOD (3663)",
           "Mail: 2305 Portland Ave, Rochester, NY 14617",
           "Facebook: facebook.com/battatiniscatering",
+          "Instagram: instagram.com/battatiniscatering",
         ]}
       />
       <p>We try to respond to accessibility feedback within 30 business days.</p>
