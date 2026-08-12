@@ -18,7 +18,7 @@ const SERVICE_LINKS = [
   { href: "/services/bbq", label: "BBQ Catering" },
   { href: "/services/graduation", label: "Graduation Catering" },
   { href: "/services/holiday", label: "Holiday Catering" },
-  { href: "/services/sympathy", label: "Sympathy Catering" },
+  { href: "/services/bereavements", label: "Bereavement Catering" },
 ];
 
 const POLICY_LINKS = [

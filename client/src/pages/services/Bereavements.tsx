@@ -1,11 +1,11 @@
 import ServicePage from "@/components/ServicePage";
 
-export default function Sympathy() {
+export default function Bereavements() {
   return (
     <ServicePage
-      title="Bereavement & Sympathy Catering"
+      title="Bereavement Catering"
       subtitle="Comforting Meals for Difficult Times"
-      seoHeader="Sympathy & Funeral Catering in Rochester — Comfort Food Delivered with Care"
+      seoHeader="Bereavement, Sympathy & Funeral Catering in Rochester — Comfort Food Delivered with Care"
       description="A thoughtful meal can provide comfort and support in life's toughest moments. During times of loss, even the simplest tasks can feel overwhelming. Sending a meal is a meaningful way to offer comfort to a grieving friend or family. We prepare fresh, homemade meals ready to serve for individuals or family gatherings, delivered with care so loved ones can focus on healing while the food is taken care of."
       features={[
         "Thoughtful, ready-to-serve meals delivered with care",
@@ -29,14 +29,14 @@ export default function Sympathy() {
       ]}
       faqs={[
         {
-          question: "How quickly can you deliver a sympathy meal?",
+          question: "How quickly can you deliver a bereavement meal?",
           answer:
             "We understand these requests often come on short notice. Call us at 585-544-FOOD (3663) and we will do everything we can to accommodate your timing, often same-day or next-day depending on the size of the order and our schedule.",
         },
         {
           question: "Can I send a meal to a family on someone else's behalf?",
           answer:
-            "Yes. Many of our sympathy orders are gifts sent by friends, extended family, coworkers, or church groups. Just give us the delivery address and timing, and we will handle the rest with discretion and care.",
+            "Yes. Many of our bereavement orders are gifts sent by friends, extended family, coworkers, or church groups. Just give us the delivery address and timing, and we will handle the rest with discretion and care.",
         },
         {
           question: "How much food should I order for a gathering after a service?",

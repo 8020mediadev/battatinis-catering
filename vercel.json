@@ -1,5 +1,6 @@
 {
   "trailingSlash": false,
+  "cleanUrls": false,
   "redirects": [
     { "source": "/homepage", "destination": "/", "permanent": true },
     { "source": "/moving", "destination": "/", "permanent": true },
@@ -15,8 +16,12 @@
     { "source": "/bbq-catering", "destination": "/services/bbq", "permanent": true },
     { "source": "/graduation-catering", "destination": "/services/graduation", "permanent": true },
     { "source": "/holiday-catering", "destination": "/services/holiday", "permanent": true },
-    { "source": "/sympathy-catering", "destination": "/services/sympathy", "permanent": true },
+    { "source": "/sympathy-catering", "destination": "/services/bereavements", "permanent": true },
+    { "source": "/services/sympathy", "destination": "/services/bereavements", "permanent": true },
+    { "source": "/bereavement-catering", "destination": "/services/bereavements", "permanent": true },
     { "source": "/parties", "destination": "/services/parties", "permanent": true },
+    { "source": "/banquets", "destination": "/services/parties", "permanent": true },
+    { "source": "/banquet-catering", "destination": "/services/parties", "permanent": true },
     { "source": "/events", "destination": "/services/parties", "permanent": true },
     { "source": "/big-game", "destination": "/services/parties", "permanent": true },
     { "source": "/car-wash-fundraiser", "destination": "/services/parties", "permanent": true },
@@ -25,19 +30,29 @@
   ],
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
-    { "source": "/menu", "destination": "/index.html" },
-    { "source": "/about", "destination": "/index.html" },
-    { "source": "/order-catering", "destination": "/index.html" },
-    { "source": "/thursday-tray-day", "destination": "/index.html" },
-    { "source": "/privacy-policy", "destination": "/index.html" },
-    { "source": "/accessibility", "destination": "/index.html" },
-    { "source": "/services/corporate", "destination": "/index.html" },
-    { "source": "/services/parties", "destination": "/index.html" },
-    { "source": "/services/weddings", "destination": "/index.html" },
-    { "source": "/services/bbq", "destination": "/index.html" },
-    { "source": "/services/graduation", "destination": "/index.html" },
-    { "source": "/services/holiday", "destination": "/index.html" },
-    { "source": "/services/sympathy", "destination": "/index.html" },
+    { "source": "/menu", "destination": "/menu/index.html" },
+    { "source": "/about", "destination": "/about/index.html" },
+    { "source": "/order-catering", "destination": "/order-catering/index.html" },
+    { "source": "/thursday-tray-day", "destination": "/thursday-tray-day/index.html" },
+    { "source": "/privacy-policy", "destination": "/privacy-policy/index.html" },
+    { "source": "/accessibility", "destination": "/accessibility/index.html" },
+    { "source": "/services/corporate", "destination": "/services/corporate/index.html" },
+    { "source": "/services/parties", "destination": "/services/parties/index.html" },
+    { "source": "/services/weddings", "destination": "/services/weddings/index.html" },
+    { "source": "/services/bbq", "destination": "/services/bbq/index.html" },
+    { "source": "/services/graduation", "destination": "/services/graduation/index.html" },
+    { "source": "/services/holiday", "destination": "/services/holiday/index.html" },
+    { "source": "/services/bereavements", "destination": "/services/bereavements/index.html" },
     { "source": "/(.*)", "destination": "/api/not-found" }
+  ],
+  "headers": [
+    {
+      "source": "/sitemap.xml",
+      "headers": [{ "key": "Content-Type", "value": "application/xml; charset=utf-8" }]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [{ "key": "Content-Type", "value": "text/plain; charset=utf-8" }]
+    }
   ]
 }

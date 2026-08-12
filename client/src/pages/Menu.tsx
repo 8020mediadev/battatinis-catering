@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, Phone } from "lucide-react";
+import { Check, Phone, Download } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import OrderCTA from "@/components/OrderCTA";
@@ -10,16 +10,19 @@ import OrderCTA from "@/components/OrderCTA";
 const BUFFET_TIERS = [
   {
     name: "Buffet Option One",
+    price: "$16",
     includes: ["1 Meat of Your Choice", "1 Pasta of Your Choice", "1 Side of Your Choice", "Salad & Rolls"],
     popular: false,
   },
   {
     name: "Buffet Option Two",
+    price: "$18",
     includes: ["2 Meats of Your Choice", "1 Pasta of Your Choice", "1 Side of Your Choice", "Salad & Rolls"],
     popular: true,
   },
   {
     name: "Buffet Option Three",
+    price: "$20",
     includes: ["2 Meats of Your Choice", "2 Pastas of Your Choice", "1 Side of Your Choice", "Salad & Rolls"],
     popular: false,
   },
@@ -28,10 +31,12 @@ const BUFFET_TIERS = [
 const SPECIALTY_COMBOS = [
   {
     name: "BBQ Special",
+    price: "$19",
     includes: ["2 Meats of Your Choice", "2 Sides of Your Choice", "Cornbread or Rolls"],
   },
   {
     name: "Wedding Combination",
+    price: "$22",
     includes: [
       "2 Meats of Your Choice",
       "3 Sides or Pasta Selections",
@@ -40,6 +45,20 @@ const SPECIALTY_COMBOS = [
       "Stay on-site optional",
     ],
   },
+];
+
+/* ── Tray pricing, per the August 2026 printed menu ── */
+const TRAY_PRICING = [
+  { category: "Appetizers", full: "$100", half: "$60" },
+  { category: "Platters", full: "$100", half: "$65" },
+  { category: "Pasta", full: "$100", half: "$60" },
+  { category: "Baked Pasta & Lasagna", full: "$120", half: "$60" },
+  { category: "Meats", full: "$120", half: "$60" },
+  { category: "Combos", full: "$180", half: "$90" },
+  { category: "Sides", full: "$85", half: "$50" },
+  { category: "Specialty Salads", full: "$65", half: "$40" },
+  { category: "BBQ Options", full: "$120", half: "$60" },
+  { category: "BBQ Side Options", full: "$85", half: "$50" },
 ];
 
 /* ── Tray Menu Categories ── */
@@ -270,6 +289,10 @@ export default function Menu() {
                 )}
                 <CardHeader className="text-center pb-2">
                   <CardTitle className="font-serif text-[#850100]">{tier.name}</CardTitle>
+                  <div className="mt-2">
+                    <span className="font-serif font-bold text-3xl text-[#444444]">{tier.price}</span>
+                    <span className="text-[#444444]/70 text-base"> / person</span>
+                  </div>
                 </CardHeader>
                 <CardContent className="pt-4">
                   <ul className="space-y-2.5">
@@ -298,6 +321,10 @@ export default function Menu() {
               <Card key={combo.name} className="border-0 shadow-lg bg-white">
                 <CardHeader className="text-center pb-2">
                   <CardTitle className="font-serif text-[#850100]">{combo.name}</CardTitle>
+                  <div className="mt-2">
+                    <span className="font-serif font-bold text-3xl text-[#444444]">{combo.price}</span>
+                    <span className="text-[#444444]/70 text-base"> / person</span>
+                  </div>
                 </CardHeader>
                 <CardContent className="pt-4">
                   <ul className="space-y-2.5">
@@ -312,6 +339,39 @@ export default function Menu() {
               </Card>
             ))}
           </div>
+          {/* Tray pricing by category */}
+          <div className="max-w-3xl mx-auto mt-14">
+            <h3 className="font-serif font-bold text-[#444444] text-center mb-2">Tray Pricing</h3>
+            <p className="text-[#444444]/70 text-center text-base mb-6">
+              Every menu item is available by the half tray or full tray.
+            </p>
+            <div className="overflow-hidden rounded-xl border border-gray-200 shadow-md">
+              <table className="w-full text-left">
+                <thead className="bg-[#850100] text-white">
+                  <tr>
+                    <th scope="col" className="px-4 py-3 font-serif font-semibold">Category</th>
+                    <th scope="col" className="px-4 py-3 font-serif font-semibold text-right">Full Tray</th>
+                    <th scope="col" className="px-4 py-3 font-serif font-semibold text-right">Half Tray</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {TRAY_PRICING.map((row, i) => (
+                    <tr key={row.category} className={i % 2 === 0 ? "bg-white" : "bg-[#faf8f6]"}>
+                      <td className="px-4 py-3 text-[#444444]">{row.category}</td>
+                      <td className="px-4 py-3 text-[#444444] text-right font-semibold">{row.full}</td>
+                      <td className="px-4 py-3 text-[#444444] text-right font-semibold">{row.half}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-[#444444]/70 text-base mt-4 text-center">
+              Add chicken to any pasta for $10. Sicilian Style Beef is $140 full tray, $70 half tray.
+              Dinner rolls are $6 per dozen and dessert trays are $60 each. BBQ pork rib pricing varies
+              &mdash; call for a final price.
+            </p>
+          </div>
+
           {/* Tray sizes info */}
           <div className="flex justify-center mt-8 max-w-3xl mx-auto">
             <Card className="border-0 shadow-md bg-[#faf8f6] w-full max-w-md">
@@ -402,9 +462,17 @@ export default function Menu() {
       <section className="py-16 md:py-20 bg-gradient-to-br from-[#850100] to-[#660000] text-white">
         <div className="container text-center">
           <h2 className=" font-bold font-serif mb-4">Full Catering Menu</h2>
-          <p className="text-white/80 max-w-2xl mx-auto mb-10">
+          <p className="text-white/80 max-w-2xl mx-auto mb-8">
             View or download our complete catering menu.
           </p>
+          <a
+            href="/battatinis-catering-menu.pdf"
+            download
+            className="inline-flex items-center gap-2 mb-10 bg-white text-[#850100] hover:bg-white/90 font-bold px-6 py-3 rounded-md transition-colors"
+          >
+            <Download className="h-4 w-4" />
+            Download Catering Menu (PDF)
+          </a>
           <div className="flex flex-col gap-8 max-w-3xl mx-auto">
             <div className="block rounded-xl overflow-hidden shadow-2xl border-4 border-white/20">
               <img

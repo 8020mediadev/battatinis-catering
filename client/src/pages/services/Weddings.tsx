@@ -7,11 +7,11 @@ export default function Weddings() {
       subtitle="Exceptional Wedding Catering in Rochester, NY"
       heroImage="/images/hero-weddings.jpg"
       seoHeader="Family-Style Wedding Catering That Your Guests Will Love"
-      description="Make your big day unforgettable with family-style feasts from Battatini's. We specialize in creating warm, memorable dining experiences for weddings of all sizes. Our wedding combo starts at just $20 per person and includes everything you need — from racks and sternos to a beautifully curated menu your guests will love."
+      description="Make your big day unforgettable with family-style feasts from Battatini's. We specialize in creating warm, memorable dining experiences for weddings of all sizes. Our wedding combo starts at just $22 per person and includes everything you need — from racks and sternos to a beautifully curated menu your guests will love."
       features={[
         "Wedding receptions and rehearsal dinners",
         "Engagement parties",
-        "Wedding combo starting at $20/person",
+        "Wedding combo starting at $22/person",
         "2 meats, 3 sides/pastas, salad, and rolls included",
         "Racks and sternos provided",
         "Customizable menu to match your vision",
@@ -23,7 +23,7 @@ export default function Weddings() {
       popularItems={["Wedding Combination (2 Meats + 3 Sides)", "Chicken French & Linguine", "Lasagna Roll Ups", "Caesar Salad", "Caprese Salad", "Italian Cookie Tray"]}
       faqs={[
         {
-          question: "What's included in the $20/person wedding combo?",
+          question: "What's included in the $22/person wedding combo?",
           answer: "Our wedding combo includes your choice of 2 meats, 3 sides or pastas, a fresh salad, and dinner rolls — all served family-style. Racks and sternos are provided so everything stays hot and ready for your guests.",
         },
         {

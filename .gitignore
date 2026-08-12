@@ -6,6 +6,10 @@ dist/
 dist-ssr/
 *.local
 
+# NOTE: prerendered/ is intentionally NOT ignored. It holds the committed static
+# HTML that Vercel serves, because the build image has no Chromium to generate it.
+# Regenerate with `npm run prerender` after content changes, then commit.
+
 # Vercel
 .vercel
 

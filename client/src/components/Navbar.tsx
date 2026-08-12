@@ -22,7 +22,7 @@ const SERVICE_LINKS = [
   { href: "/services/bbq", label: "BBQ Catering" },
   { href: "/services/graduation", label: "Graduation" },
   { href: "/services/holiday", label: "Holiday" },
-  { href: "/services/sympathy", label: "Sympathy" },
+  { href: "/services/bereavements", label: "Bereavements" },
 ];
 
 const MOBILE_LINKS = [
@@ -35,7 +35,7 @@ const MOBILE_LINKS = [
   { href: "/services/bbq", label: "BBQ Catering" },
   { href: "/services/graduation", label: "Graduation" },
   { href: "/services/holiday", label: "Holiday" },
-  { href: "/services/sympathy", label: "Sympathy" },
+  { href: "/services/bereavements", label: "Bereavements" },
   { href: "/thursday-tray-day", label: "Thursday Tray Day" },
   { href: "/order-catering", label: "Order Now" },
 ];

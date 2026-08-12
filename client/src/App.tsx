@@ -5,6 +5,7 @@ import { Route, Switch, Redirect } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import ScrollToTop from "./components/ScrollToTop";
 import CookieConsent from "./components/CookieConsent";
+import Seo from "./components/Seo";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
@@ -15,7 +16,7 @@ import Weddings from "./pages/services/Weddings";
 import BBQ from "./pages/services/BBQ";
 import Graduation from "./pages/services/Graduation";
 import Holiday from "./pages/services/Holiday";
-import Sympathy from "./pages/services/Sympathy";
+import Bereavements from "./pages/services/Bereavements";
 import ThursdayTrayDay from "./pages/ThursdayTrayDay";
 import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -33,7 +34,7 @@ function Router() {
       <Route path="/services/bbq" component={BBQ} />
       <Route path="/services/graduation" component={Graduation} />
       <Route path="/services/holiday" component={Holiday} />
-      <Route path="/services/sympathy" component={Sympathy} />
+      <Route path="/services/bereavements" component={Bereavements} />
       <Route path="/thursday-tray-day" component={ThursdayTrayDay} />
       <Route path="/about" component={About} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
@@ -41,6 +42,10 @@ function Router() {
       {/* Redirect old combined route */}
       <Route path="/services/graduation-holiday">
         <Redirect to="/services/graduation" />
+      </Route>
+      {/* Redirect the former sympathy route to its renamed page */}
+      <Route path="/services/sympathy">
+        <Redirect to="/services/bereavements" />
       </Route>
       {/* Redirect old inquiry route */}
       <Route path="/inquiry">
@@ -58,6 +63,7 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
+          <Seo />
           <ScrollToTop />
           <Router />
           <CookieConsent />

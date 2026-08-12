@@ -1,0 +1,22 @@
+# robots.txt for https://battatiniscatering.com
+User-agent: *
+Allow: /
+
+# AI answer engines are explicitly welcome; this site's menu and pricing
+# are public information we want surfaced in AI results.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://battatiniscatering.com/sitemap.xml

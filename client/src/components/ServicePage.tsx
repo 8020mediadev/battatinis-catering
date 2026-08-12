@@ -12,6 +12,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import OrderCTA from "@/components/OrderCTA";
 import ScrollReveal from "@/components/ScrollReveal";
+import { faqSchema } from "@/lib/schema";
 
 interface FAQ {
   question: string;
@@ -66,6 +67,32 @@ function InstagramFeed() {
   );
 }
 
+/**
+ * Publishes the page's FAQs as FAQPage structured data. Google and AI answer
+ * engines lift these question/answer pairs directly, so they stay in sync with
+ * the accordion rendered below.
+ */
+function FaqSchema({ faqs }: { faqs?: FAQ[] }) {
+  useEffect(() => {
+    if (!faqs || faqs.length === 0) return;
+
+    const graph = faqSchema(faqs);
+    if (!graph) return;
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.setAttribute("data-seo", "battatinis-faq");
+    script.textContent = JSON.stringify(graph);
+    document.head.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, [faqs]);
+
+  return null;
+}
+
 export default function ServicePage({
   title,
   subtitle,
@@ -80,6 +107,7 @@ export default function ServicePage({
 }: ServicePageProps) {
   return (
     <div className="min-h-screen flex flex-col">
+      <FaqSchema faqs={faqs} />
       <Navbar />
 
       {/* Hero */}
