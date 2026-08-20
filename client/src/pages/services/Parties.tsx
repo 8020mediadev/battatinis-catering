@@ -5,7 +5,8 @@ export default function Parties() {
     <ServicePage
       title="Party & Banquet Catering"
       subtitle="Catering for Every Celebration and Banquet in Rochester, NY"
-      heroImage="/images/hero-parties.jpg"
+      heroImage="/images/party-catering-rochester-ny.webp"
+      heroAlt="Party catering buffet with tossed salad, roasted Brussels sprouts, wings, and fresh rolls"
       seoHeader="Affordable Party & Banquet Catering for Any Celebration in Rochester"
       description="Make your next celebration unforgettable with Battatini's Family Style Catering. From birthday parties and retirements to banquets, baby showers, and fundraising events, we bring the food so you can focus on the fun. Our family-style combinations are designed to simplify your planning and delight your guests, whether you are hosting a dozen people or a banquet hall of several hundred."
       features={[

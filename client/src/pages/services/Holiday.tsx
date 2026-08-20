@@ -5,7 +5,8 @@ export default function Holiday() {
     <ServicePage
       title="Holiday Catering"
       subtitle="Make Every Holiday Feast One to Remember"
-      heroImage="/images/hero-holiday.jpeg"
+      heroImage="/images/holiday-catering-rochester-ny.webp"
+      heroAlt="Full catering tray of homemade meatballs in marinara sauce for a holiday gathering"
       seoHeader="Holiday Catering in Rochester — Homemade Italian Feasts for Every Season"
       description="From Easter brunch to Thanksgiving dinner and Christmas celebrations, Battatini's brings the warmth of family-style Italian cooking to your holiday table. Let us take the stress out of holiday meal prep so you can enjoy quality time with your loved ones. We offer special holiday menus and packages tailored to the season."
       features={[

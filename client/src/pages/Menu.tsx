@@ -254,8 +254,12 @@ export default function Menu() {
             </div>
             <div className="shrink-0">
               <img
-                src="/images/chicken-french-min.png"
-                alt="Chicken French"
+                src="/images/catering-trays-rochester-ny.webp"
+                alt="Spring mix salad catering tray with balsamic drizzle, apples, goat cheese, and grape tomatoes"
+                width={1200}
+                height={1200}
+                loading="lazy"
+                decoding="async"
                 className="w-56 h-56 md:w-72 md:h-72 object-cover rounded-2xl shadow-lg"
               />
             </div>
@@ -477,14 +481,18 @@ export default function Menu() {
             <div className="block rounded-xl overflow-hidden shadow-2xl border-4 border-white/20">
               <img
                 src="/images/catering-in-rochester-ny.jpg"
-                alt="Battatini's Family Style Buffets Menu - Front"
+                alt="Battatini's Family Style Buffets menu showing buffet options one through three, the BBQ special, wedding combination, and dessert tray pricing"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto"
               />
             </div>
             <div className="block rounded-xl overflow-hidden shadow-2xl border-4 border-white/20">
               <img
                 src="/images/menu-detail.jpg"
-                alt="Battatini's Full Catering Menu - Tray Options"
+                alt="Battatini's full catering menu listing appetizers, pasta, meats, sides, specialty salads, platters, combos, and BBQ options with full and half tray pricing"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto"
               />
             </div>

@@ -27,6 +27,7 @@ interface ServicePageProps {
   features: string[];
   ctaText?: string;
   heroImage?: string;
+  heroAlt?: string;
   faqs?: FAQ[];
   popularItems?: string[];
   extraDescription?: string;
@@ -101,6 +102,7 @@ export default function ServicePage({
   features,
   ctaText = "Start Your Order",
   heroImage,
+  heroAlt,
   faqs,
   popularItems,
   extraDescription,
@@ -115,9 +117,19 @@ export default function ServicePage({
         {/* Background image with dark overlay */}
         {heroImage && (
           <>
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url("${heroImage}")` }}
+            {/*
+              Rendered as a real <img> rather than a CSS background so the
+              photo carries alt text for screen readers and is discoverable
+              by image search. aria-hidden is deliberately NOT set.
+            */}
+            <img
+              src={heroImage}
+              alt={heroAlt ?? ""}
+              width={1800}
+              height={1200}
+              fetchPriority="high"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-[#850100]/75 via-[#850100]/60 to-[#660000]/80" />
           </>

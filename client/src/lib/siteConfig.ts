@@ -68,14 +68,14 @@ export const PAGE_META: Record<string, PageMeta> = {
     title: "Catering in Rochester, NY | Battatini's Family Style Catering",
     description:
       "Family-owned catering in Rochester, NY for weddings, corporate events, graduations, banquets, and bereavements. Family-style buffets from $16 per person. Call 585-544-3663.",
-    image: "/images/catering-in-rochester-ny.jpg",
+    image: "/images/battatinis-catering-og.jpg",
   },
   "/menu": {
     path: "/menu",
     title: "Catering Menu & Prices | Battatini's Catering Rochester NY",
     description:
       "View our full catering menu and pricing. Family-style buffets from $16 per person, half and full trays of Italian favorites, BBQ, salads, and desserts. Download the PDF menu.",
-    image: "/images/catering-in-rochester-ny.jpg",
+    image: "/images/battatinis-catering-og.jpg",
   },
   "/about": {
     path: "/about",

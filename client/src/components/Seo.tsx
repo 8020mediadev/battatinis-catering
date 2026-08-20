@@ -60,7 +60,7 @@ export default function Seo() {
   useEffect(() => {
     const meta = PAGE_META[location] ?? DEFAULT_META;
     const canonical = `${SITE_URL}${meta.path === "/" ? "" : meta.path}`;
-    const ogImage = `${SITE_URL}${meta.image ?? "/images/catering-in-rochester-ny.jpg"}`;
+    const ogImage = `${SITE_URL}${meta.image ?? "/images/battatinis-catering-og.jpg"}`;
 
     document.title = meta.title;
 

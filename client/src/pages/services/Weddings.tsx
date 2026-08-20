@@ -5,7 +5,8 @@ export default function Weddings() {
     <ServicePage
       title="Wedding Catering"
       subtitle="Exceptional Wedding Catering in Rochester, NY"
-      heroImage="/images/hero-weddings.jpg"
+      heroImage="/images/wedding-catering-rochester-ny.webp"
+      heroAlt="Spring mix salad tray with balsamic drizzle, apples, and goat cheese for a wedding reception"
       seoHeader="Family-Style Wedding Catering That Your Guests Will Love"
       description="Make your big day unforgettable with family-style feasts from Battatini's. We specialize in creating warm, memorable dining experiences for weddings of all sizes. Our wedding combo starts at just $22 per person and includes everything you need — from racks and sternos to a beautifully curated menu your guests will love."
       features={[

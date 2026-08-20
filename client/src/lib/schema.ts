@@ -55,7 +55,7 @@ export function localBusinessSchema() {
     telephone: BUSINESS.phoneE164,
     email: BUSINESS.email,
     priceRange: BUSINESS.priceRange,
-    image: `${SITE_URL}/images/catering-in-rochester-ny.jpg`,
+    image: `${SITE_URL}/images/battatinis-catering-og.jpg`,
     logo: `${SITE_URL}/images/logo-outline.png`,
     address: POSTAL_ADDRESS,
     geo: {

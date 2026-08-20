@@ -5,7 +5,8 @@ export default function Graduation() {
     <ServicePage
       title="Graduation Catering"
       subtitle="Celebrate Their Big Achievement with Battatini's"
-      heroImage="/images/hero-graduation.jpg"
+      heroImage="/images/graduation-party-catering-rochester-ny.webp"
+      heroAlt="Graduation party catering trays of baked ziti, chicken parmesan, meatballs, and tossed salad"
       seoHeader="Graduation Party Catering in Rochester, NY"
       description="Your graduate worked hard to get here — make the celebration unforgettable with delicious family-style catering from Battatini's. Whether it's a small family gathering or a big backyard bash, we'll handle the food so you can focus on celebrating. From classic Italian favorites to crowd-pleasing BBQ, we have the perfect menu for every grad party."
       features={[

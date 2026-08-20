@@ -5,6 +5,8 @@ export default function Bereavements() {
     <ServicePage
       title="Bereavement Catering"
       subtitle="Comforting Meals for Difficult Times"
+      heroImage="/images/bereavement-catering-rochester-ny.webp"
+      heroAlt="Antipasto platter with salami, ham, cheese, olives, artichokes, and roasted red peppers"
       seoHeader="Bereavement, Sympathy & Funeral Catering in Rochester — Comfort Food Delivered with Care"
       description="A thoughtful meal can provide comfort and support in life's toughest moments. During times of loss, even the simplest tasks can feel overwhelming. Sending a meal is a meaningful way to offer comfort to a grieving friend or family. We prepare fresh, homemade meals ready to serve for individuals or family gatherings, delivered with care so loved ones can focus on healing while the food is taken care of."
       features={[

@@ -5,7 +5,8 @@ export default function Corporate() {
     <ServicePage
       title="Corporate Catering"
       subtitle="Business Catering in Rochester, NY"
-      heroImage="/images/hero-corporate.webp"
+      heroImage="/images/corporate-catering-rochester-ny.webp"
+      heroAlt="Battatini's Catering boxes and a salad tray delivered for a corporate event in Rochester, NY"
       seoHeader="Professional Corporate Catering Services in Rochester, NY"
       description="We understand the importance of impeccable service and exceptional food in creating a professional and inviting atmosphere for corporate events. Whether you're planning a small team lunch, a large conference, or an annual company gala, our corporate catering services are designed to impress. Enjoy the peace of mind that comes with knowing your catering is in expert hands."
       features={[

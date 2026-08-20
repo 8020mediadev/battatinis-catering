@@ -96,8 +96,12 @@ export default function ThursdayTrayDay() {
             {/* Right: Graphic */}
             <div className="flex justify-center lg:justify-end">
               <img
-                src="/images/thursday-tray-day.webp"
-                alt="Thursday Tray Day at Battatini's Family Style Catering"
+                src="/images/thursday-tray-day-wings.webp"
+                alt="Full tray of buffalo wings tossed in sauce for Thursday Tray Day at Battatini's Family Style Catering in Rochester, NY"
+                width={1200}
+                height={1500}
+                fetchPriority="high"
+                decoding="async"
                 className="w-full max-w-md rounded-2xl shadow-2xl border-4 border-white/20"
               />
             </div>

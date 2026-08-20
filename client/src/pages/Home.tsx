@@ -78,11 +78,11 @@ const BENEFITS = [
 ];
 
 const SERVICES: { title: string; href: string; desc: string; icon: LucideIcon; image?: string }[] = [
-  { title: "Corporate Events", href: "/services/corporate", desc: "Office meetings, conferences, and company events.", icon: Briefcase, image: "/images/hero-corporate.webp" },
-  { title: "Parties", href: "/services/parties", desc: "Birthdays, retirements, graduations, and celebrations.", icon: PartyPopper, image: "/images/hero-parties.jpg" },
-  { title: "Weddings", href: "/services/weddings", desc: "Make your big day unforgettable with family-style feasts.", icon: Heart, image: "/images/hero-weddings.jpg" },
-  { title: "BBQ Catering", href: "/services/bbq", desc: "Smoky ribs, pulled pork, and hearty BBQ sides.", icon: Flame, image: "/images/hero-bbq.jpg" },
-  { title: "Graduation Catering", href: "/services/graduation", desc: "Celebrate their big achievement with a family-style feast.", icon: GraduationCap, image: "/images/hero-graduation.jpg" },
+  { title: "Corporate Events", href: "/services/corporate", desc: "Office meetings, conferences, and company events.", icon: Briefcase, image: "/images/corporate-catering-rochester-ny.webp" },
+  { title: "Parties", href: "/services/parties", desc: "Birthdays, retirements, graduations, and celebrations.", icon: PartyPopper, image: "/images/party-catering-rochester-ny.webp" },
+  { title: "Weddings", href: "/services/weddings", desc: "Make your big day unforgettable with family-style feasts.", icon: Heart, image: "/images/wedding-catering-rochester-ny.webp" },
+  { title: "BBQ Catering", href: "/services/bbq", desc: "Smoky ribs, pulled pork, and hearty BBQ sides.", icon: Flame, image: "/images/bbq-catering-rochester-ny.webp" },
+  { title: "Graduation Catering", href: "/services/graduation", desc: "Celebrate their big achievement with a family-style feast.", icon: GraduationCap, image: "/images/graduation-party-catering-rochester-ny.webp" },
   { title: "Any Event, We Cater It", href: "/order-catering", desc: "Have something special in mind? Tell us about your event and we'll make it happen.", icon: Sparkles },
 ];
 
@@ -447,21 +447,63 @@ export default function Home() {
           </ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
-              { src: "/images/chicken-french.jpg", label: "Chicken French" },
-              { src: "/images/pasta-meat-sauce.jpg", label: "Pasta with Meat Sauce" },
-              { src: "/images/greens-and-beans.jpg", label: "Greens and Beans" },
-              { src: "/images/eggplant-parmesan.jpg", label: "Eggplant Parmesan" },
-              { src: "/images/baked-italian-chicken.jpg", label: "Baked Italian Chicken" },
-              { src: "/images/fruit-tray.jpg", label: "Fruit Tray" },
+              {
+                src: "/images/chicken-french.webp",
+                label: "Chicken French",
+                alt: "Tray of Chicken French with lemon in a light wine sauce from Battatini's Catering in Rochester, NY",
+              },
+              {
+                src: "/images/baked-ziti-pasta-catering.webp",
+                label: "Baked Ziti",
+                alt: "Full catering tray of baked ziti topped with melted mozzarella and homemade red sauce",
+              },
+              {
+                src: "/images/greens-and-beans.webp",
+                label: "Greens and Beans",
+                alt: "Tray of Rochester-style greens and beans made with escarole and white beans",
+              },
+              {
+                src: "/images/chicken-parmesan.webp",
+                label: "Chicken Parmesan",
+                alt: "Catering tray of chicken parmesan topped with melted mozzarella and fresh parsley",
+              },
+              {
+                src: "/images/baked-italian-chicken.webp",
+                label: "Baked Italian Chicken",
+                alt: "Tray of baked Italian chicken seasoned and roasted golden brown",
+              },
+              {
+                src: "/images/homemade-meatballs.webp",
+                label: "Homemade Meatballs",
+                alt: "Full tray of homemade meatballs simmered in Battatini's marinara sauce",
+              },
+              {
+                src: "/images/sicilian-pulled-pork.webp",
+                label: "Sicilian Style Pulled Pork",
+                alt: "Sicilian style pulled pork being served with tongs from a catering tray",
+              },
+              {
+                src: "/images/wrap-tray-catering.webp",
+                label: "Wrap Tray",
+                alt: "Wrap tray with assorted turkey, ham, and veggie pinwheel wraps on a black platter",
+              },
+              {
+                src: "/images/fruit-tray.webp",
+                label: "Fruit Tray",
+                alt: "Fresh fruit tray with watermelon, cantaloupe, strawberries, and grapes",
+              },
             ].map((dish, i) => (
               <ScrollReveal key={dish.label} direction="up" delay={i * 80}>
                 <div className="group">
                   <div className="aspect-[4/3] overflow-hidden rounded-xl shadow-md group-hover:shadow-xl transition-shadow">
                     <img
                       src={dish.src}
-                      alt={dish.label}
+                      alt={dish.alt}
+                      width={1200}
+                      height={676}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <p className="text-center text-[#444444]/80 italic mt-3 text-base md:text-base">

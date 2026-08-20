@@ -28,26 +28,88 @@ export default function About() {
 
       {/* Our Story */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="container max-w-4xl">
+        <div className="container max-w-5xl">
           <ScrollReveal>
-            <div className="space-y-6">
-              <h2 className="font-serif font-bold text-[#444444]">Our Story</h2>
-              <p className="text-[#444444] leading-relaxed">
-                Battatini's Family Style Catering was born from a simple belief: that great food brings people together. What started as a passion for cooking authentic Italian recipes for family and friends has grown into Rochester's trusted catering service for events of every size and occasion.
-              </p>
-              <p className="text-[#444444] leading-relaxed">
-                For over a decade, we've been serving the Rochester community with the same love and care that goes into a home-cooked family dinner. Every dish is made from scratch using recipes passed down through generations — from our signature Chicken French to our homemade pasta sauces and slow-smoked BBQ.
-              </p>
-              <p className="text-[#444444] leading-relaxed">
-                We believe catering should be stress-free. That's why we handle everything — from menu planning and preparation to hot delivery and setup. Whether you're feeding 10 people at an office lunch or 300 guests at a wedding reception, we bring the same dedication to quality and service every single time.
-              </p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+              <div className="space-y-6">
+                <h2 className="font-serif font-bold text-[#444444]">Our Story</h2>
+                <p className="text-[#444444] leading-relaxed">
+                  Battatini's Family Style Catering was born from a simple belief: that great food brings people together. What started as a passion for cooking authentic Italian recipes for family and friends has grown into Rochester's trusted catering service for events of every size and occasion.
+                </p>
+                <p className="text-[#444444] leading-relaxed">
+                  For over a decade, we've been serving the Rochester community with the same love and care that goes into a home-cooked family dinner. Every dish is made from scratch using recipes passed down through generations — from our signature Chicken French to our homemade pasta sauces and slow-smoked BBQ.
+                </p>
+                <p className="text-[#444444] leading-relaxed">
+                  We believe catering should be stress-free. That's why we handle everything — from menu planning and preparation to hot delivery and setup. Whether you're feeding 10 people at an office lunch or 300 guests at a wedding reception, we bring the same dedication to quality and service every single time.
+                </p>
+              </div>
+              <div className="space-y-6">
+                <figure className="overflow-hidden rounded-2xl shadow-lg">
+                  <img
+                    src="/images/sam-battatini-kitchen-rochester-ny.webp"
+                    alt="Sam plating breaded chicken cutlets into catering trays in the Battatini's Catering kitchen in Rochester, NY"
+                    width={1600}
+                    height={1067}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto object-cover"
+                  />
+                  <figcaption className="text-center text-[#444444]/70 italic text-base mt-3">
+                    Every tray is prepped by hand in our Portland Ave kitchen.
+                  </figcaption>
+                </figure>
+                <figure className="overflow-hidden rounded-2xl shadow-lg">
+                  <img
+                    src="/images/homemade-sauce-battatinis-catering.webp"
+                    alt="Large pot of Battatini's homemade red sauce simmering on the stove"
+                    width={1400}
+                    height={933}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto object-cover"
+                  />
+                  <figcaption className="text-center text-[#444444]/70 italic text-base mt-3">
+                    Our red sauce is made from scratch, never from a jar.
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Serving the community */}
+      <section className="py-16 md:py-20 bg-[#faf8f6]">
+        <div className="container max-w-5xl">
+          <ScrollReveal>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+              <figure className="overflow-hidden rounded-2xl shadow-lg order-last lg:order-first">
+                <img
+                  src="/images/battatinis-catering-delivery-rochester-ny.webp"
+                  alt="Stacked Battatini's Catering boxes and a fresh salad tray delivered to Eastridge in Rochester, NY"
+                  width={1200}
+                  height={1500}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto object-cover"
+                />
+              </figure>
+              <div className="space-y-6">
+                <h2 className="font-serif font-bold text-[#444444]">Feeding Rochester, One Event at a Time</h2>
+                <p className="text-[#444444] leading-relaxed">
+                  From school lunches and office meetings to graduation parties, wedding receptions, and bereavement gatherings, we deliver hot, homemade food across Rochester and the surrounding towns — Irondequoit, Webster, Greece, Penfield, Brighton, and beyond.
+                </p>
+                <p className="text-[#444444] leading-relaxed">
+                  Full trays feed 30 to 40 people and half trays feed 10 to 15, so whether it is a small team lunch or a hall full of guests, the food shows up ready to serve.
+                </p>
+              </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-16 md:py-20 bg-[#faf8f6]">
+      <section className="py-16 md:py-20 bg-white">
         <div className="container max-w-5xl">
           <ScrollReveal>
             <div className="text-center mb-10">
