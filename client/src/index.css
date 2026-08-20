@@ -170,6 +170,25 @@
   .safe-area-bottom {
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
+
+  /* Services carousel: keep native scroll and swipe behaviour but hide the
+     scrollbar chrome, since the arrows and dots already signal position. */
+  .services-track {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .services-track::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Honour a reduced-motion preference: jump between cards instead of
+   animating the horizontal scroll. */
+@media (prefers-reduced-motion: reduce) {
+  .services-track {
+    scroll-behavior: auto;
+  }
 }
 
 @layer components {

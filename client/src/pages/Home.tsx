@@ -1,7 +1,6 @@
 import { Link } from "wouter";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Accordion,
   AccordionItem,
@@ -28,12 +27,12 @@ import {
   Clock,
   X,
   Sun,
-  type LucideIcon,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import OrderCTA from "@/components/OrderCTA";
 import ScrollReveal from "@/components/ScrollReveal";
+import ServicesCarousel, { type ServiceSlide } from "@/components/ServicesCarousel";
 import { useIsMobile } from "@/hooks/useMobile";
 
 /* ─── Data ─── */
@@ -77,13 +76,63 @@ const BENEFITS = [
   },
 ];
 
-const SERVICES: { title: string; href: string; desc: string; icon: LucideIcon; image?: string }[] = [
-  { title: "Corporate Events", href: "/services/corporate", desc: "Office meetings, conferences, and company events.", icon: Briefcase, image: "/images/corporate-catering-rochester-ny.webp" },
-  { title: "Parties", href: "/services/parties", desc: "Birthdays, retirements, graduations, and celebrations.", icon: PartyPopper, image: "/images/party-catering-rochester-ny.webp" },
-  { title: "Weddings", href: "/services/weddings", desc: "Make your big day unforgettable with family-style feasts.", icon: Heart, image: "/images/wedding-catering-rochester-ny.webp" },
-  { title: "BBQ Catering", href: "/services/bbq", desc: "Smoky ribs, pulled pork, and hearty BBQ sides.", icon: Flame, image: "/images/bbq-pork-ribs-catering-rochester.webp" },
-  { title: "Graduation Catering", href: "/services/graduation", desc: "Celebrate their big achievement with a family-style feast.", icon: GraduationCap, image: "/images/graduation-party-catering-rochester-ny.webp" },
-  { title: "Any Event, We Cater It", href: "/order-catering", desc: "Have something special in mind? Tell us about your event and we'll make it happen.", icon: Sparkles },
+const SERVICES: ServiceSlide[] = [
+  {
+    title: "Corporate Events",
+    href: "/services/corporate",
+    desc: "Office meetings, conferences, and company events.",
+    icon: Briefcase,
+    image: "/images/corporate-catering-rochester-ny.webp",
+    alt: "Battatini's Catering boxes and a fresh salad tray delivered for a corporate event in Rochester, NY",
+  },
+  {
+    title: "Parties",
+    href: "/services/parties",
+    desc: "Birthdays, retirements, banquets, and celebrations.",
+    icon: PartyPopper,
+    image: "/images/party-catering-rochester-ny.webp",
+    alt: "Party catering buffet line with tossed salad, roasted vegetables, wings, and rolls",
+  },
+  {
+    title: "Weddings",
+    href: "/services/weddings",
+    desc: "Make your big day unforgettable with family-style feasts.",
+    icon: Heart,
+    image: "/images/wedding-catering-rochester-ny.webp",
+    alt: "Spring mix wedding salad with balsamic, marinated apples, and goat cheese",
+  },
+  {
+    title: "BBQ Catering",
+    href: "/services/bbq",
+    desc: "Smoky ribs, pulled pork, and hearty BBQ sides.",
+    icon: Flame,
+    image: "/images/bbq-pork-ribs-catering-rochester.webp",
+    alt: "Full tray of slow-cooked BBQ pork ribs glazed in barbecue sauce",
+  },
+  {
+    title: "Graduation Catering",
+    href: "/services/graduation",
+    desc: "Celebrate their big achievement with a family-style feast.",
+    icon: GraduationCap,
+    image: "/images/graduation-party-catering-rochester-ny.webp",
+    alt: "Graduation party catering spread with baked ziti, chicken parmesan, meatballs, and salad",
+  },
+  {
+    title: "Holiday Catering",
+    href: "/services/holiday",
+    desc: "Office parties and family holiday gatherings, done right.",
+    icon: Sparkles,
+    image: "/images/holiday-catering-rochester-ny.webp",
+    alt: "Full tray of homemade meatballs simmered in marinara for a holiday gathering",
+  },
+  {
+    title: "Bereavement Catering",
+    href: "/services/bereavements",
+    desc: "Compassionate service so your family can focus on each other.",
+    icon: Heart,
+    image: "/images/bereavement-catering-rochester-ny.webp",
+    alt: "Antipasto platter with cured meats, cheeses, and olives for a bereavement gathering",
+  },
 ];
 
 const TRUST_STATS = [
@@ -397,38 +446,31 @@ export default function Home() {
                 Catering Services For Any Event
               </h2>
               <p className="text-[#444444]/70 max-w-2xl mx-auto">
-                From corporate lunches to dream weddings, we have you covered.
+                From corporate lunches to dream weddings, we have you covered. Swipe to explore all seven.
               </p>
             </div>
           </ScrollReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICES.map((s, i) => (
-              <ScrollReveal key={s.href} direction="up" delay={i * 80}>
-                <Link href={s.href}>
-                  <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all cursor-pointer group overflow-hidden relative">
-                    <CardContent className="p-6 flex flex-col h-full relative z-10">
-                      {s.image && (
-                        <>
-                          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url("${s.image}")` }} />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30 group-hover:from-black/85 group-hover:via-black/55 transition-all" />
-                        </>
-                      )}
-                      <div className={`relative z-10 w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${s.image ? "bg-white/20" : "bg-[#850100]/10 group-hover:bg-[#850100]/20"} transition-colors`}>
-                        <s.icon className={`h-6 w-6 ${s.image ? "text-white" : "text-[#850100]"}`} />
-                      </div>
-                      <h3 className={`relative z-10 font-serif font-bold mb-2 transition-colors ${s.image ? "text-white" : "text-[#850100] group-hover:text-[#660000]"}`}>
-                        {s.title}
-                      </h3>
-                      <p className={`relative z-10 text-base flex-1 ${s.image ? "text-white/80" : "text-[#444444]/70"}`}>{s.desc}</p>
-                      <span className={`relative z-10 text-base font-semibold mt-4 group-hover:underline ${s.image ? "text-white" : "text-[#850100]"}`}>
-                        Learn More →
-                      </span>
-                    </CardContent>
-                  </Card>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
+          <ScrollReveal direction="up">
+            <ServicesCarousel services={SERVICES} />
+          </ScrollReveal>
+
+          {/* Catch-all for anything not covered by the seven service pages */}
+          <ScrollReveal direction="up">
+            <div className="mt-10 text-center">
+              <p className="text-[#444444]/70 mb-4">
+                Planning something that isn't listed? We cater it all — just tell us what you have in mind.
+              </p>
+              <Link href="/order-catering">
+                <Button
+                  size="lg"
+                  className="bg-[#850100] hover:bg-[#660000] text-white font-semibold"
+                >
+                  <Sparkles className="w-5 h-5 mr-2" />
+                  Tell Us About Your Event
+                </Button>
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
