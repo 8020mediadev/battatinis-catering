@@ -81,7 +81,7 @@ const SERVICES: { title: string; href: string; desc: string; icon: LucideIcon; i
   { title: "Corporate Events", href: "/services/corporate", desc: "Office meetings, conferences, and company events.", icon: Briefcase, image: "/images/corporate-catering-rochester-ny.webp" },
   { title: "Parties", href: "/services/parties", desc: "Birthdays, retirements, graduations, and celebrations.", icon: PartyPopper, image: "/images/party-catering-rochester-ny.webp" },
   { title: "Weddings", href: "/services/weddings", desc: "Make your big day unforgettable with family-style feasts.", icon: Heart, image: "/images/wedding-catering-rochester-ny.webp" },
-  { title: "BBQ Catering", href: "/services/bbq", desc: "Smoky ribs, pulled pork, and hearty BBQ sides.", icon: Flame, image: "/images/bbq-catering-rochester-ny.webp" },
+  { title: "BBQ Catering", href: "/services/bbq", desc: "Smoky ribs, pulled pork, and hearty BBQ sides.", icon: Flame, image: "/images/bbq-pork-ribs-catering-rochester.webp" },
   { title: "Graduation Catering", href: "/services/graduation", desc: "Celebrate their big achievement with a family-style feast.", icon: GraduationCap, image: "/images/graduation-party-catering-rochester-ny.webp" },
   { title: "Any Event, We Cater It", href: "/order-catering", desc: "Have something special in mind? Tell us about your event and we'll make it happen.", icon: Sparkles },
 ];

@@ -5,8 +5,8 @@ export default function BBQ() {
     <ServicePage
       title="BBQ Catering"
       subtitle="Hot & Fresh BBQ Catering in Rochester, NY"
-      heroImage="/images/bbq-catering-rochester-ny.webp"
-      heroAlt="BBQ catering spread with penne, meatballs, wings, and rolls in full catering trays"
+      heroImage="/images/bbq-pork-ribs-catering-rochester.webp"
+      heroAlt="Full tray of slow-cooked BBQ pork ribs glazed in barbecue sauce from Battatini's Catering in Rochester, NY"
       seoHeader="Rochester's Best BBQ Catering — Smoky, Fresh, and Delivered Hot"
       description="Fire up your next event with Battatini's BBQ Catering! Our smoky, slow-cooked meats and hearty sides bring the backyard BBQ experience to any gathering. Perfect for casual corporate events, summer parties, family reunions, and more. Our BBQ combo is just $19 per person and includes everything you need for a crowd-pleasing meal."
       features={[
