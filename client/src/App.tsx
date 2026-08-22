@@ -18,6 +18,7 @@ import Graduation from "./pages/services/Graduation";
 import Holiday from "./pages/services/Holiday";
 import Bereavements from "./pages/services/Bereavements";
 import ThursdayTrayDay from "./pages/ThursdayTrayDay";
+import ChickenNight from "./pages/ChickenNight";
 import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Accessibility from "./pages/Accessibility";
@@ -36,6 +37,7 @@ function Router() {
       <Route path="/services/holiday" component={Holiday} />
       <Route path="/services/bereavements" component={Bereavements} />
       <Route path="/thursday-tray-day" component={ThursdayTrayDay} />
+      <Route path="/chicken-night" component={ChickenNight} />
       <Route path="/about" component={About} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/accessibility" component={Accessibility} />

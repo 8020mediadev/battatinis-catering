@@ -8,6 +8,7 @@ const QUICK_LINKS = [
   { href: "/about", label: "About Us" },
   { href: "/menu", label: "Catering Menu" },
   { href: "/thursday-tray-day", label: "Thursday Tray Day" },
+  { href: "/chicken-night", label: "Tuesday Chicken Night" },
   { href: "/order-catering", label: "Order Now" },
 ];
 

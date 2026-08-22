@@ -95,6 +95,13 @@ export const PAGE_META: Record<string, PageMeta> = {
     description:
       "Every Thursday, stop by 2305 Portland Ave in Rochester for Tray Day. Fresh homemade trays ready to take home, no catering order required.",
   },
+  "/chicken-night": {
+    path: "/chicken-night",
+    title: "Tuesday Chicken Night in Irondequoit | Battatini's Catering",
+    description:
+      "Tuesday Chicken Night from Battatini's: $50 half trays of chicken parm with penne, chicken French with linguine, or chicken cutlets with ziti. Irondequoit delivery only, 3–8 PM.",
+    image: "/images/chicken-parmesan.webp",
+  },
   "/services/corporate": {
     path: "/services/corporate",
     title: "Corporate & Office Lunch Catering | Rochester, NY",
