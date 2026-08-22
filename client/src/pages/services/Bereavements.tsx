@@ -20,6 +20,38 @@ export default function Bereavements() {
         "Short-notice orders accommodated whenever possible",
       ]}
       ctaText="Arrange a Meal"
+      heroNote="Short notice accommodated whenever we can"
+      price={{
+        amount: "$16",
+        unit: "per person",
+        includes: [
+          "1 meat of your choice",
+          "1 pasta and 1 side",
+          "Salad and dinner rolls",
+          "Trays also available a la carte",
+        ],
+        note: "Call us and we will keep the arrangements simple.",
+      }}
+      steps={[
+        {
+          title: "One phone call",
+          desc: "Tell us the day, the time, and roughly how many. We take it from there.",
+        },
+        {
+          title: "We keep it simple",
+          desc: "A straightforward family-style menu. No decisions you do not need to make.",
+        },
+        {
+          title: "Delivered and set up",
+          desc: "Hot food, set out and ready, so your family can be with each other.",
+        },
+      ]}
+      photos={[
+        { src: "/images/bereavement-catering-rochester-ny.webp", alt: "Family-style catering trays arranged for a bereavement gathering" },
+        { src: "/images/wrap-tray-catering.webp", alt: "Wrap tray with assorted cold cuts for a repast gathering" },
+        { src: "/images/baked-italian-chicken.webp", alt: "Tray of baked Italian chicken for a family gathering" },
+        { src: "/images/catering-trays-rochester-ny.webp", alt: "Battatini's catering trays delivered and ready to serve" },
+      ]}
       extraDescription="Whether you are organizing a gathering after a service or sending a meal to someone in mourning, Battatini's makes it simple. Choose from family-style trays or individually packaged meals, all prepared with care and ready to serve. Let us handle the food so you can focus on what matters most."
       popularItems={[
         "Baked Italian Chicken",

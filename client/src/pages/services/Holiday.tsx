@@ -20,6 +20,38 @@ export default function Holiday() {
         "Advance ordering available for stress-free holidays",
       ]}
       ctaText="Plan Your Holiday Feast"
+      heroNote="Office parties and family gatherings"
+      price={{
+        amount: "$18",
+        unit: "per person",
+        includes: [
+          "2 meats of your choice",
+          "1 pasta and 1 side",
+          "Salad and dinner rolls",
+          "Dessert trays from $60",
+        ],
+        note: "Buffet Option Two. December books early.",
+      }}
+      steps={[
+        {
+          title: "Call with your date",
+          desc: "Holiday dates go fast, particularly December weekends.",
+        },
+        {
+          title: "Build the menu",
+          desc: "Italian classics, carved meats, sides, and dessert trays for the table.",
+        },
+        {
+          title: "We handle the rest",
+          desc: "Delivered hot and set up, so the host gets to sit down too.",
+        },
+      ]}
+      photos={[
+        { src: "/images/holiday-catering-rochester-ny.webp", alt: "Holiday catering spread from Battatini's Family Style Catering" },
+        { src: "/images/baked-ziti-pasta-catering.webp", alt: "Full tray of baked ziti for a holiday gathering" },
+        { src: "/images/homemade-sauce-battatinis-catering.webp", alt: "Homemade red sauce simmering in the Battatini's kitchen" },
+        { src: "/images/chicken-french.webp", alt: "Tray of Chicken French prepared for a holiday party" },
+      ]}
       extraDescription="From Thanksgiving feasts to Christmas Eve dinners and Easter celebrations, our homemade Italian dishes bring warmth and tradition to your holiday table. Order full or half trays and let us handle the cooking while you enjoy time with family."
       popularItems={["Baked Italian Chicken", "Lasagna or Lasagna Roll Ups", "Stuffed Shells", "Roasted Mixed Vegetables", "Eggplant Parmesan", "Italian Cookie Tray"]}
       faqs={[

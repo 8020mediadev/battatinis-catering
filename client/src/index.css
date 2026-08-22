@@ -4,6 +4,38 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /*
+    Type scale.
+
+    The base layer below already declared 18px for body and links, but that
+    rule loses to the ~220 explicit Tailwind text-* utilities used across the
+    JSX. Measured on the live homepage, 81 of 143 text elements rendered below
+    18px (50 at 16px, 22 at 14px, 5 at 12px). Remapping the scale here is the
+    only change that reaches those utilities without editing every call site.
+
+    text-base becomes 18px, which is the body and link size Steve asked for.
+    The smallest step is held at 14px: captions and metadata still need to sit
+    below body copy or the hierarchy flattens and pages stop being scannable.
+  */
+  --text-xs: 0.875rem;      /* 14px (was 12px) */
+  --text-xs--line-height: 1.5;
+  --text-sm: 1rem;          /* 16px (was 14px) */
+  --text-sm--line-height: 1.55;
+  --text-base: 1.125rem;    /* 18px (was 16px) */
+  --text-base--line-height: 1.6;
+  --text-lg: 1.25rem;       /* 20px (was 18px) */
+  --text-lg--line-height: 1.55;
+  --text-xl: 1.375rem;      /* 22px (was 20px) */
+  --text-xl--line-height: 1.5;
+  --text-2xl: 1.625rem;     /* 26px (was 24px) */
+  --text-2xl--line-height: 1.35;
+  --text-3xl: 2rem;         /* 32px (was 30px) */
+  --text-3xl--line-height: 1.25;
+  --text-4xl: 2.5rem;       /* 40px (was 36px) */
+  --text-4xl--line-height: 1.2;
+  --text-5xl: 3rem;         /* 48px */
+  --text-5xl--line-height: 1.15;
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -135,17 +167,23 @@
     font-weight: 700;
     line-height: 1.2;
   }
+  /*
+    Fluid headings. These were previously fixed pixel values, so an h1 rendered
+    at the same 28px on a phone and on a 27-inch monitor -- there was no
+    responsive variant at all. clamp() ties the size to the viewport between a
+    sensible mobile floor and a desktop ceiling.
+  */
   h1 {
-    font-size: 28px;
+    font-size: clamp(2.125rem, 1.35rem + 3.4vw, 3.25rem); /* 34px -> 52px */
   }
   h2 {
-    font-size: 24px;
+    font-size: clamp(1.625rem, 1.25rem + 1.7vw, 2.25rem); /* 26px -> 36px */
   }
   h3 {
-    font-size: 22px;
+    font-size: clamp(1.3125rem, 1.22rem + 0.4vw, 1.5rem); /* 21px -> 24px */
   }
   h4 {
-    font-size: 20px;
+    font-size: clamp(1.1875rem, 1.14rem + 0.2vw, 1.3125rem); /* 19px -> 21px */
   }
   p, li, a, span, label, td, th {
     font-size: 18px;

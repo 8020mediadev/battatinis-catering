@@ -20,6 +20,38 @@ export default function Corporate() {
         "Hot and fresh delivery to your office or venue",
       ]}
       ctaText="Get a Corporate Quote"
+      heroNote="Trusted by Rochester offices and schools"
+      price={{
+        amount: "$85",
+        unit: "per half tray",
+        includes: [
+          "Half tray feeds 10 to 15 people",
+          "Full trays available from $100",
+          "Hot delivery to your office",
+          "Serving equipment provided",
+        ],
+        note: "Pricing varies by menu selection. Call for a quote.",
+      }}
+      steps={[
+        {
+          title: "Send your headcount",
+          desc: "Tell us how many people, what time, and where. We confirm the same day.",
+        },
+        {
+          title: "Pick your trays",
+          desc: "Choose full or half trays from any category. We can mix and match to suit the room.",
+        },
+        {
+          title: "We deliver hot",
+          desc: "Food arrives hot and ready to serve, with everything you need to set out.",
+        },
+      ]}
+      photos={[
+        { src: "/images/corporate-catering-rochester-ny.webp", alt: "Battatini's Catering boxes and a salad tray delivered to a Rochester office" },
+        { src: "/images/wrap-tray-catering.webp", alt: "Wrap tray with assorted cold cuts and toppings for an office lunch" },
+        { src: "/images/chicken-parmesan.webp", alt: "Tray of chicken parmesan prepared for a corporate catering order" },
+        { src: "/images/battatinis-catering-delivery-rochester-ny.webp", alt: "Battatini's Catering delivery boxes stacked and ready for an office event" },
+      ]}
       extraDescription="From small team lunches to company-wide celebrations, our family-style trays make corporate catering simple. We handle everything — from menu planning to hot delivery — so your team can focus on what matters. Full and half trays available for any group size."
       popularItems={["Chicken French", "Baked Ziti", "Wrap Tray", "Antipasto Platter", "Chicken Parm w/ Fettuccine Alfredo", "Cookie & Brownie Trays"]}
       faqs={[

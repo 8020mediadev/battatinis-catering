@@ -215,17 +215,21 @@ export default function Menu() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-[#850100] to-[#660000] text-white py-16 md:py-20 relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
+      {/* Photo hero, consistent with the service pages and About */}
+      <section className="relative flex items-center min-h-[340px] md:min-h-[44vh] text-white overflow-hidden">
+        <img
+          src="/images/catering-trays-rochester-ny.webp"
+          alt="Family-style catering trays from Battatini's laid out and ready to serve in Rochester, NY"
+          width={1600}
+          height={1067}
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="container relative text-center">
-          <h1 className=" font-bold font-serif mb-4">Catering Menu</h1>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#4a0000]/75 via-[#660000]/60 to-[#4a0000]/85" />
+        <div className="container relative text-center py-14">
+          <h1 className=" font-bold font-serif mb-4 drop-shadow-lg">Catering Menu</h1>
+          <p className="text-lg text-white/85 max-w-2xl mx-auto drop-shadow-md">
             Our catering menu is available by the tray or try a family combo! Family-style combinations designed to simplify your planning.
           </p>
         </div>

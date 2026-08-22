@@ -20,6 +20,38 @@ export default function Graduation() {
         "Stress-free planning — we handle everything",
       ]}
       ctaText="Plan Your Grad Party"
+      heroNote="Book early for May and June"
+      price={{
+        amount: "$16",
+        unit: "per person",
+        includes: [
+          "1 meat of your choice",
+          "1 pasta and 1 side",
+          "Salad and dinner rolls",
+          "Options two and three at $18 and $20",
+        ],
+        note: "Graduation season books up fast. Call ahead.",
+      }}
+      steps={[
+        {
+          title: "Lock in your date",
+          desc: "Graduation weekends fill quickly. Call as soon as you know the date.",
+        },
+        {
+          title: "Choose the food",
+          desc: "Family-style buffet or trays. We can scale from a back garden to a hall.",
+        },
+        {
+          title: "We deliver and set up",
+          desc: "Hot food, racks and sternos, and a buffet that holds up all afternoon.",
+        },
+      ]}
+      photos={[
+        { src: "/images/graduation-party-catering-rochester-ny.webp", alt: "Graduation party catering spread from Battatini's in Rochester, NY" },
+        { src: "/images/baked-italian-chicken.webp", alt: "Tray of baked Italian chicken for a graduation party" },
+        { src: "/images/homemade-meatballs.webp", alt: "Homemade meatballs in red sauce, a graduation party favourite" },
+        { src: "/images/fruit-tray.webp", alt: "Fresh fruit tray for a graduation open house" },
+      ]}
       extraDescription="Celebrate their big achievement without the stress of cooking for a crowd. Our family-style buffet combos are designed for graduation parties of any size — from intimate backyard gatherings to large venue celebrations. Order ahead and we'll have everything ready."
       popularItems={["Buffet Option Two (2 Meats + 1 Pasta + 1 Side)", "Chicken Parm w/ Fettuccine Alfredo", "BBQ Chicken & Mac and Cheese", "Fruit Tray", "Brownie Tray", "Veggie Platter"]}
       faqs={[

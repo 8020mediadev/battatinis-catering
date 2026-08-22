@@ -487,6 +487,11 @@ export default function Home() {
               </p>
             </div>
           </ScrollReveal>
+          {/* Single reveal around the grid. Previously each tile had its own
+              ScrollReveal holding it at opacity 0 while the img was
+              loading="lazy"; a tile the observer never marked visible would
+              silently never load its photo. */}
+          <ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               {
@@ -534,27 +539,26 @@ export default function Home() {
                 label: "Fruit Tray",
                 alt: "Fresh fruit tray with watermelon, cantaloupe, strawberries, and grapes",
               },
-            ].map((dish, i) => (
-              <ScrollReveal key={dish.label} direction="up" delay={i * 80}>
-                <div className="group">
-                  <div className="aspect-[4/3] overflow-hidden rounded-xl shadow-md group-hover:shadow-xl transition-shadow">
-                    <img
-                      src={dish.src}
-                      alt={dish.alt}
-                      width={1200}
-                      height={676}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <p className="text-center text-[#444444]/80 italic mt-3 text-base md:text-base">
-                    {dish.label}
-                  </p>
+            ].map((dish) => (
+              <div key={dish.label} className="group">
+                <div className="aspect-[4/3] overflow-hidden rounded-xl shadow-md group-hover:shadow-xl transition-shadow">
+                  <img
+                    src={dish.src}
+                    alt={dish.alt}
+                    width={1200}
+                    height={676}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
-              </ScrollReveal>
+                <p className="text-center text-[#444444]/80 italic mt-3">
+                  {dish.label}
+                </p>
+              </div>
             ))}
           </div>
+          </ScrollReveal>
         </div>
       </section>
 

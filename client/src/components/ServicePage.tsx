@@ -19,6 +19,27 @@ interface FAQ {
   answer: string;
 }
 
+interface Price {
+  /** Headline figure, e.g. "$22" */
+  amount: string;
+  /** Unit shown next to the figure, e.g. "per person" */
+  unit: string;
+  /** What the price covers, one line per bullet */
+  includes: string[];
+  /** Optional qualifier shown under the bullets */
+  note?: string;
+}
+
+interface Step {
+  title: string;
+  desc: string;
+}
+
+interface Photo {
+  src: string;
+  alt: string;
+}
+
 interface ServicePageProps {
   title: string;
   subtitle: string;
@@ -31,37 +52,77 @@ interface ServicePageProps {
   faqs?: FAQ[];
   popularItems?: string[];
   extraDescription?: string;
+  /** Optional headline price surfaced in the sidebar. */
+  price?: Price;
+  /** Optional 3-step "how it works" band, unique per service. */
+  steps?: Step[];
+  /** Photos for the strip that replaced the Instagram embed. */
+  photos?: Photo[];
+  /** Short trust line rendered under the hero subtitle. */
+  heroNote?: string;
 }
 
-function InstagramFeed() {
-  useEffect(() => {
-    // Load Elfsight platform script if not already loaded
-    if (!document.querySelector('script[src="https://elfsightcdn.com/platform.js"]')) {
-      const script = document.createElement("script");
-      script.src = "https://elfsightcdn.com/platform.js";
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, []);
-
+/**
+ * A compact strip of real Battatini's photography that links out to the
+ * Instagram profile.
+ *
+ * This replaces the Elfsight embed that previously sat on every service page.
+ * Measured on the live site, that widget rendered a 1,546px tall section --
+ * 28.6% of the entire page height -- while displaying mostly empty space, and
+ * injected ~121KB of third-party HTML per page load. The live feed is still
+ * embedded on the homepage, Tray Day and the order page; the service pages now
+ * show curated photos instead, which are crawlable for image search and cost
+ * no third-party request.
+ */
+function PhotoStrip({ photos }: { photos: { src: string; alt: string }[] }) {
   return (
     <section className="py-16 md:py-20 bg-white">
-      <div className="container max-w-5xl">
+      <div className="container max-w-6xl">
         <ScrollReveal>
           <div className="text-center mb-10">
             <h2 className="font-serif font-bold text-[#444444]">
-              Follow Us on Instagram
+              Straight From Our Kitchen
             </h2>
             <p className="text-[#444444]/70 mt-2">
-              See what we've been cooking up lately
+              Real trays from real Battatini's events — see more on{" "}
+              <a
+                href="https://www.instagram.com/battatiniscatering"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#850100] font-semibold underline underline-offset-2 hover:text-[#660000]"
+              >
+                Instagram
+              </a>
+              .
             </p>
           </div>
         </ScrollReveal>
-        <ScrollReveal delay={100}>
-          <div
-            className="elfsight-app-ddbfe1bb-2ff3-4f89-95a7-c916fa2576a7"
-            data-elfsight-app-lazy
-          />
+        {/*
+          One ScrollReveal around the whole grid rather than one per tile.
+          Wrapping each tile individually meant every image sat at opacity 0
+          behind its own IntersectionObserver; combined with loading="lazy",
+          any tile the observer failed to mark visible never requested its
+          image at all, leaving a silently blank square.
+        */}
+        <ScrollReveal>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {photos.map((photo) => (
+              <div
+                key={photo.src}
+                className="relative overflow-hidden rounded-xl aspect-square group"
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  width={800}
+                  height={800}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
         </ScrollReveal>
       </div>
     </section>
@@ -106,6 +167,10 @@ export default function ServicePage({
   faqs,
   popularItems,
   extraDescription,
+  price,
+  steps,
+  photos,
+  heroNote,
 }: ServicePageProps) {
   return (
     <div className="min-h-screen flex flex-col">
@@ -113,7 +178,7 @@ export default function ServicePage({
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#850100] to-[#660000] text-white py-24 md:py-32 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-[#850100] to-[#660000] text-white relative overflow-hidden flex items-center min-h-[420px] md:min-h-[62vh] py-20 md:py-24">
         {/* Background image with dark overlay */}
         {heroImage && (
           <>
@@ -131,7 +196,12 @@ export default function ServicePage({
               decoding="async"
               className="absolute inset-0 h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#850100]/75 via-[#850100]/60 to-[#660000]/80" />
+            {/*
+              Overlay lightened from 75/60/80 so the photograph reads as the
+              subject rather than a texture. Contrast for the headline is held
+              by the drop shadow and the darker foot of the gradient.
+            */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#850100]/60 via-[#850100]/45 to-[#660000]/75" />
           </>
         )}
         {/* Subtle pattern overlay */}
@@ -142,37 +212,79 @@ export default function ServicePage({
           }}
         />
         <div className="container relative text-center">
-          <h1 className=" font-bold font-serif mb-4 drop-shadow-lg">{title}</h1>
+          {/* Breadcrumb: orients the visitor and adds an internal link back up
+              the hierarchy, which also helps Google understand site structure. */}
+          <nav aria-label="Breadcrumb" className="mb-5">
+            <ol className="flex items-center justify-center gap-2 text-white/70">
+              <li>
+                <Link href="/" className="hover:text-white transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden="true" className="text-white/40">
+                /
+              </li>
+              <li className="text-white/90 font-medium">{title}</li>
+            </ol>
+          </nav>
+          <h1 className="font-bold font-serif mb-4 drop-shadow-lg">{title}</h1>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto drop-shadow-md">{subtitle}</p>
+          {heroNote && (
+            <p className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2 text-white backdrop-blur-sm ring-1 ring-white/25">
+              <Star className="h-4 w-4 shrink-0 fill-current" aria-hidden="true" />
+              {heroNote}
+            </p>
+          )}
         </div>
       </section>
 
       {/* Content */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="container max-w-4xl">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-            <div className="lg:col-span-3 space-y-6">
+        {/*
+          Widened from max-w-4xl to max-w-6xl and the split changed from 3+2 to
+          8+4. Previously the body column measured just 480px on a 1280px
+          viewport -- 37.5% of the screen -- which read as a narrow ribbon of
+          text with large dead margins. It now sits near 700px, a comfortable
+          measure of roughly 75 characters.
+        */}
+        <div className="container max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+            <div className="lg:col-span-8 space-y-6">
               <h2 className="font-serif font-bold text-[#444444]">{seoHeader}</h2>
               <p className="text-[#444444] leading-relaxed">{description}</p>
               {extraDescription && (
                 <p className="text-[#444444] leading-relaxed">{extraDescription}</p>
               )}
-              <h3 className="font-serif font-bold text-[#444444]">What We Offer</h3>
-              <ul className="space-y-3">
+
+              <h3 className="font-serif font-bold text-[#444444] pt-2">What We Offer</h3>
+              {/* Two-column card grid rather than a single-column check list:
+                  same content, about half the vertical space, far more presence. */}
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {features.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-[#444444]">
-                    <Check className="h-5 w-5 text-[#850100] shrink-0 mt-0.5" />
+                  <li
+                    key={f}
+                    className="flex items-start gap-3 rounded-lg border border-gray-100 bg-[#faf8f6] p-4 text-[#444444]"
+                  >
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#850100]/10">
+                      <Check className="h-4 w-4 text-[#850100]" aria-hidden="true" />
+                    </span>
                     <span>{f}</span>
                   </li>
                 ))}
               </ul>
+
               {popularItems && popularItems.length > 0 && (
                 <>
-                  <h3 className="font-serif font-bold text-[#444444] mt-8">Popular Menu Items for This Event</h3>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <h3 className="font-serif font-bold text-[#444444] pt-4">
+                    Popular Menu Items for This Event
+                  </h3>
+                  <ul className="flex flex-wrap gap-2">
                     {popularItems.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-[#444444]">
-                        <Utensils className="h-4 w-4 text-[#850100] shrink-0" />
+                      <li
+                        key={item}
+                        className="inline-flex items-center gap-2 rounded-full border border-[#850100]/20 bg-white px-4 py-2 text-[#444444]"
+                      >
+                        <Utensils className="h-4 w-4 text-[#850100] shrink-0" aria-hidden="true" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -180,33 +292,63 @@ export default function ServicePage({
                 </>
               )}
             </div>
-            <div className="lg:col-span-2">
-              <div className="bg-[#faf8f6] rounded-xl p-6 sticky top-24 space-y-6">
-                <h3 className="font-serif font-bold text-[#444444] text-center">
-                  Ready to Get Started?
-                </h3>
-                <p className="text-[#444444]/70 text-base text-center">
-                  Contact us today to discuss your event and customize your perfect menu.
-                </p>
-                <Link href="/order-catering" className="block">
-                  <Button className="w-full bg-[#850100] hover:bg-[#660000] text-white font-bold py-5">
-                    {ctaText}
-                  </Button>
-                </Link>
-                <Link href="/menu" className="block">
-                  <Button variant="outline" className="w-full border-[#850100] text-[#850100] hover:bg-[#850100]/5 font-semibold">
-                    View Full Menu
-                  </Button>
-                </Link>
-                <div className="border-t border-gray-200 pt-4 text-center">
-                  <p className="text-[#444444]/60 text-base mb-2">Or call us directly</p>
-                  <a
-                    href="tel:5855443663"
-                    className="inline-flex items-center gap-2 text-[#850100] font-bold hover:text-[#660000] transition-colors"
-                  >
-                    <Phone className="h-5 w-5" />
-                    585-544-FOOD (3663)
-                  </a>
+
+            <div className="lg:col-span-4">
+              <div className="sticky top-24 space-y-4">
+                {/* Price card: the headline figure was previously buried in a
+                    paragraph, despite being a primary decision factor. */}
+                {price && (
+                  <div className="rounded-xl bg-gradient-to-br from-[#850100] to-[#660000] p-6 text-white shadow-md">
+                    <p className="text-white/75 uppercase tracking-widest text-sm font-semibold">
+                      Starting at
+                    </p>
+                    <p className="mt-1 flex items-baseline gap-2">
+                      <span className="font-serif font-bold text-4xl leading-none">
+                        {price.amount}
+                      </span>
+                      <span className="text-white/85">{price.unit}</span>
+                    </p>
+                    <ul className="mt-4 space-y-2 border-t border-white/20 pt-4">
+                      {price.includes.map((inc) => (
+                        <li key={inc} className="flex items-start gap-2 text-white/90">
+                          <Check className="h-4 w-4 shrink-0 mt-1" aria-hidden="true" />
+                          <span>{inc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    {price.note && (
+                      <p className="mt-3 text-sm text-white/70">{price.note}</p>
+                    )}
+                  </div>
+                )}
+
+                <div className="bg-[#faf8f6] rounded-xl p-6 space-y-5 border border-gray-100">
+                  <h3 className="font-serif font-bold text-[#444444] text-center">
+                    Ready to Get Started?
+                  </h3>
+                  <p className="text-[#444444]/70 text-center">
+                    Contact us today to discuss your event and customize your perfect menu.
+                  </p>
+                  <Link href="/order-catering" className="block">
+                    <Button className="w-full bg-[#850100] hover:bg-[#660000] text-white font-bold py-5">
+                      {ctaText}
+                    </Button>
+                  </Link>
+                  <Link href="/menu" className="block">
+                    <Button variant="outline" className="w-full border-[#850100] text-[#850100] hover:bg-[#850100]/5 font-semibold">
+                      View Full Menu
+                    </Button>
+                  </Link>
+                  <div className="border-t border-gray-200 pt-4 text-center">
+                    <p className="text-[#444444]/60 mb-2">Or call us directly</p>
+                    <a
+                      href="tel:5855443663"
+                      className="inline-flex items-center gap-2 text-[#850100] font-bold hover:text-[#660000] transition-colors"
+                    >
+                      <Phone className="h-5 w-5" aria-hidden="true" />
+                      585-544-FOOD (3663)
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -214,9 +356,39 @@ export default function ServicePage({
         </div>
       </section>
 
-      {/* Why Choose Battatini's */}
+      {/* How it works: a short, service-specific band that breaks up the
+          repetition between the seven otherwise identical service pages. */}
+      {steps && steps.length > 0 && (
+        <section className="py-14 md:py-16 bg-[#850100] text-white">
+          <div className="container max-w-6xl">
+            <ScrollReveal>
+              <h2 className="font-serif font-bold text-center mb-10">How It Works</h2>
+            </ScrollReveal>
+            <ol className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {steps.map((step, i) => (
+                <ScrollReveal key={step.title} delay={i * 90}>
+                  <li className="relative rounded-xl bg-white/10 p-6 ring-1 ring-white/15 h-full">
+                    <span
+                      className="font-serif font-bold text-3xl text-white/35 leading-none"
+                      aria-hidden="true"
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-serif font-bold mt-2 mb-1">{step.title}</h3>
+                    <p className="text-white/85 leading-relaxed">{step.desc}</p>
+                  </li>
+                </ScrollReveal>
+              ))}
+            </ol>
+          </div>
+        </section>
+      )}
+
+      {/* Why Choose Battatini's --- left-aligned with a rule and inline icon,
+          deliberately different from the centred circle-icon cards used on the
+          About page, so the site's card vocabulary is not identical everywhere. */}
       <section className="py-16 md:py-20 bg-[#faf8f6]">
-        <div className="container max-w-5xl">
+        <div className="container max-w-6xl">
           <ScrollReveal>
             <div className="text-center mb-10">
               <h2 className="font-serif font-bold text-[#444444]">
@@ -235,12 +407,10 @@ export default function ServicePage({
               { icon: Star, title: "5-Star Rated", desc: "Consistently rated 5 stars on Google by Rochester families." },
             ].map((item, i) => (
               <ScrollReveal key={item.title} delay={i * 80}>
-                <div className="bg-white rounded-xl border border-gray-100 p-6 text-center shadow-sm h-full flex flex-col items-center">
-                  <div className="w-14 h-14 rounded-full bg-[#850100]/10 flex items-center justify-center mb-4">
-                    <item.icon className="h-6 w-6 text-[#850100]" />
-                  </div>
-                  <h3 className="font-bold text-[#444444] mb-2">{item.title}</h3>
-                  <p className="text-[#444444]/70 text-base leading-relaxed">{item.desc}</p>
+                <div className="bg-white rounded-xl border-t-4 border-[#850100] p-6 shadow-sm h-full">
+                  <item.icon className="h-7 w-7 text-[#850100] mb-3" aria-hidden="true" />
+                  <h3 className="font-serif font-bold text-[#444444] mb-2">{item.title}</h3>
+                  <p className="text-[#444444]/70 leading-relaxed">{item.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -248,8 +418,8 @@ export default function ServicePage({
         </div>
       </section>
 
-      {/* Instagram Feed */}
-      <InstagramFeed />
+      {/* Photo strip (replaced the Elfsight Instagram embed) */}
+      {photos && photos.length > 0 && <PhotoStrip photos={photos} />}
 
       {/* FAQ Section */}
       {faqs && faqs.length > 0 && (

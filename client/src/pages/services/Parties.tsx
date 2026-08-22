@@ -21,6 +21,38 @@ export default function Parties() {
         "Delivery or pickup available",
       ]}
       ctaText="Plan Your Party or Banquet"
+      heroNote="Banquets, birthdays, and house parties"
+      price={{
+        amount: "$16",
+        unit: "per person",
+        includes: [
+          "1 meat of your choice",
+          "1 pasta and 1 side",
+          "Salad and dinner rolls",
+          "Options two and three at $18 and $20",
+        ],
+        note: "Buffet Option One. Trays also available a la carte.",
+      }}
+      steps={[
+        {
+          title: "Tell us the occasion",
+          desc: "Birthday, retirement, banquet, or just a house full of people. We size the order to the room.",
+        },
+        {
+          title: "Choose your buffet",
+          desc: "Pick one of our three family-style buffet options, or build a tray order instead.",
+        },
+        {
+          title: "We set it up",
+          desc: "We deliver hot, set out the buffet, and leave you to enjoy your own party.",
+        },
+      ]}
+      photos={[
+        { src: "/images/party-catering-rochester-ny.webp", alt: "Family-style buffet spread set out for a party in Rochester, NY" },
+        { src: "/images/homemade-meatballs.webp", alt: "Tray of homemade Italian meatballs in red sauce" },
+        { src: "/images/greens-and-beans.webp", alt: "Tray of greens and beans, a Rochester family-style favourite" },
+        { src: "/images/fruit-tray.webp", alt: "Fresh fruit tray prepared by Battatini's Catering" },
+      ]}
       extraDescription="Whether it's a milestone birthday, a retirement celebration, a banquet, or a family reunion, our homemade Italian dishes and BBQ options are crowd-pleasers every time. For banquets and larger halls we scale up with full trays, rack setup, and Sternos so the buffet line keeps moving and the food stays hot from the first guest to the last. We offer flexible tray sizes so you only order what you need — no waste, no stress."
       popularItems={["Spaghetti w/ Meatballs & Sausage", "Chicken French", "Mac and Cheese", "Fruit Tray", "Arancini", "Fried Dough"]}
       faqs={[

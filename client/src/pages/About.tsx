@@ -10,18 +10,31 @@ export default function About() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-[#850100] to-[#660000] text-white py-24 md:py-32 relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
+      {/*
+        Photo hero, matching the seven service pages. This was previously a
+        flat red band with no image, which made About the only main page
+        without a photograph -- odd for the page whose whole job is to make
+        the business feel like real people.
+      */}
+      <section className="relative flex items-center min-h-[380px] md:min-h-[52vh] text-white overflow-hidden">
+        <img
+          src="/images/sam-battatini-kitchen-rochester-ny.webp"
+          alt="Sam plating breaded chicken cutlets into catering trays in the Battatini's kitchen on Portland Avenue in Rochester, NY"
+          width={1600}
+          height={1067}
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="container relative text-center">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#4a0000]/75 via-[#660000]/60 to-[#4a0000]/85" />
+        <div className="container relative text-center py-16">
           <h1 className="font-bold font-serif mb-4 drop-shadow-lg">About Battatini's</h1>
           <p className="text-white/90 max-w-2xl mx-auto drop-shadow-md">
             Family-owned catering in Rochester, NY — bringing homemade Italian flavor to every event since 2014.
+          </p>
+          <p className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-sm px-4 py-2 text-white">
+            <Award className="h-4 w-4" aria-hidden="true" />
+            Serving Rochester for over 10 years
           </p>
         </div>
       </section>

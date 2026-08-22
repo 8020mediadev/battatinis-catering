@@ -20,6 +20,38 @@ export default function BBQ() {
         "Customizable menu to fit your event",
       ]}
       ctaText="Order BBQ Catering"
+      heroNote="Slow-smoked and made from scratch"
+      price={{
+        amount: "$19",
+        unit: "per person",
+        includes: [
+          "2 meats of your choice",
+          "2 sides of your choice",
+          "Cornbread or rolls",
+          "BBQ trays from $120 full, $60 half",
+        ],
+        note: "Rib pricing may vary. Ask for a final price.",
+      }}
+      steps={[
+        {
+          title: "Pick your meats",
+          desc: "BBQ chicken, pulled pork, ribs, or sausage with peppers and onions.",
+        },
+        {
+          title: "Add your sides",
+          desc: "Coleslaw, baked beans, mac and cheese, salt potatoes, cornbread, and more.",
+        },
+        {
+          title: "We bring the cookout",
+          desc: "Delivered hot with everything set up, whether it is a backyard or a company picnic.",
+        },
+      ]}
+      photos={[
+        { src: "/images/bbq-pork-ribs-catering-rochester.webp", alt: "Rack of slow-smoked BBQ pork ribs from Battatini's Catering" },
+        { src: "/images/sicilian-pulled-pork.webp", alt: "Tray of Sicilian style pulled pork for a BBQ catering order" },
+        { src: "/images/party-catering-rochester-ny.webp", alt: "Family-style BBQ buffet set out and ready to serve" },
+        { src: "/images/catering-trays-rochester-ny.webp", alt: "Full and half catering trays prepared for a BBQ event" },
+      ]}
       extraDescription="Our BBQ Special includes 2 meats and 2 sides of your choice with cornbread or rolls. Perfect for summer cookouts, tailgates, and outdoor events. Everything is prepared fresh and delivered hot — just set up and serve."
       popularItems={["BBQ Pulled Pork", "BBQ Pork Ribs", "BBQ Chicken", "Mac & Cheese", "Coleslaw", "Corn on the Cob"]}
       faqs={[

@@ -112,7 +112,10 @@ export default function ServicesCarousel({ services }: { services: ServiceSlide[
             className="snap-start shrink-0 w-[80%] sm:w-[46%] lg:w-[31.5%]"
           >
             <Link href={s.href}>
-              <article className="group relative h-[340px] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow cursor-pointer">
+              {/* min-height rather than a fixed height: the type scale was
+                  increased site-wide, and a hard 340px would clip the longer
+                  descriptions at narrow widths. */}
+              <article className="group relative min-h-[360px] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow cursor-pointer flex">
                 <img
                   src={s.image}
                   alt={s.alt}
@@ -125,7 +128,7 @@ export default function ServicesCarousel({ services }: { services: ServiceSlide[
                 {/* Gradient sits mostly at the bottom so the food stays visible */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/5" />
 
-                <div className="relative z-10 h-full p-6 flex flex-col justify-end text-white">
+                <div className="relative z-10 w-full p-6 flex flex-col justify-end text-white">
                   <div className="w-11 h-11 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mb-3">
                     <s.icon className="w-5 h-5 text-white" />
                   </div>
